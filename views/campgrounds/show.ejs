@@ -2,14 +2,20 @@
 <link rel="stylesheet" href="/css/stars.css" />
 <div class="row">
   <div class="col-6">
-    <div id="map"></div>
     <div id="campgroundCarousel" class="carousel slide">
       <div class="carousel-inner">
-        <% campground.images.forEach((img, i) => { %> <div class="carousel-item
-        <%= i === 0 ? "active" : ""%>">
+        <% if(campground.images.length) {%> <% campground.images.forEach((img,
+        i) => { %> <div class="carousel-item <%= i === 0 ? "active" : ""%>">
         <img src="<%= img.url %>" class="d-block w-100" alt="" crossorigin />
       </div>
-      <% }) %>
+      <% }) %> <% } else { %>
+      <img
+        src="https://res.cloudinary.com/keithmckenna-com/image/upload/v1676264388/YelpCamp/hvinz0dqivktcerxjw38.jpg"
+        alt=""
+        class="d-block w-100"
+        crossorigin
+      />
+      <% } %>
     </div>
     <% if(campground.images.length > 1) { %>
     <button
@@ -64,6 +70,7 @@
   </div>
 </div>
 <div class="col-6">
+  <div id="map" class="mb-4"></div>
   <% if(currentUser) {%>
   <h2>Leave a Review</h2>
   <form
