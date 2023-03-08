@@ -2,7 +2,7 @@
 
 <div class="row">
   <h1 class="text-center mb-3">Edit <%= campground.title %></h1>
-  <div class="col-md-6 offset-md-3">
+  <div class="col-md-10 offset-md-1">
     <div class="card shadow">
       <div class="card-body">
         <form
@@ -81,7 +81,12 @@
           </div>
           <div class="mb-3">
             <% campground.images.forEach(function(img, i) { %>
-            <img src="<%= img.thumbnail %>" class="img-thumbnail" alt="" />
+            <img
+              src="<%= img.thumbnail %>"
+              class="img-thumbnail mb-2 me-3"
+              alt=""
+              crossorigin
+            />
             <div class="form-check form-check-inline">
               <input
                 class="form-check-input"
